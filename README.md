@@ -14,9 +14,9 @@
 4. `cp .env.example .env`
 5. `docker-compose build --no-cache`
 6. `docker-compose up -d`
-7. `docker exec go-books make`
-8. `docker exec go-books make db_init`
-9. `docker exec go-books make exec`
+7. `docker exec go-pay make`
+8. `docker exec go-pay make db_init`
+9. `docker exec go-pay make exec`
 
 В результате:
 1. Будут созданы файлы env для docker и проекта
