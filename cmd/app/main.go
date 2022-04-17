@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/plutonio00/pay-api/internal/app"
 	_ "github.com/plutonio00/pay-api/docs"
+	"github.com/plutonio00/pay-api/internal/app"
 )
 
 const configPath = "config/config"
