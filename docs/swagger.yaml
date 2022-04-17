@@ -1,0 +1,150 @@
+basePath: /api/v1/
+definitions:
+  v1.ApiResponse:
+    properties:
+      result: {}
+      status:
+        type: string
+    type: object
+host: 127.0.0.1:8080
+info:
+  contact: {}
+  title: Pay Task API
+  version: "1.0"
+paths:
+  /users/replenish:
+    post:
+      description: endpoint to replenish balance
+      parameters:
+      - description: User's id
+        in: formData
+        name: userId
+        required: true
+        type: integer
+      - description: Amount of money
+        in: formData
+        name: sum
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        default:
+          description: ""
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+      summary: Replenish balance of user
+      tags:
+      - users
+  /users/transfer:
+    post:
+      description: endpoint to transfer money
+      parameters:
+      - description: Sender's id
+        in: formData
+        name: senderId
+        required: true
+        type: integer
+      - description: Recipient's title
+        in: formData
+        name: recipientId
+        required: true
+        type: integer
+      - description: Amount of money
+        in: formData
+        name: sum
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+        default:
+          description: ""
+          schema:
+            allOf:
+            - $ref: '#/definitions/v1.ApiResponse'
+            - properties:
+                result:
+                  type: string
+              type: object
+      summary: Transfer money from one user to another
+      tags:
+      - users
+swagger: "2.0"

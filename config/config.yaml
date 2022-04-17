@@ -1,0 +1,7 @@
+
+server:
+  host: "pay-api"
+  port: 80
+
+
+
